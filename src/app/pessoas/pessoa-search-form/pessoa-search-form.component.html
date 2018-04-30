@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="ui-g">
+    <form autocomplete="off" (ngSubmit)="pesquisar()">
+      <div class="ui-g-12">
+        <h1>Pessoas</h1>
+      </div>
+      <div class="ui-g-12 ui-fluid">
+        <label>Nome</label>
+        <div class="ui-inputgroup">
+          <input type="text" name="nome" [(ngModel)]="filtro.nome" pInputText/>
+          <button pButton icon="fa fa-search" type="button" (click)="pesquisar()" class="ui-button-primary"></button>
+        </div>
+      </div>
+      <div class="ui-g-6"></div>
+    </form>
+  </div>
+  <div class="ui-g">
+    <div class="ui-g-12 ">
+      <p-dataTable [value]="pessoas" empptyMessage="Nenhum Lançamento encontrado." [paginator]="true" [rows]="filtro.itensPorPagina"
+        [rowsPerPageOptions]="[2,4,8]" [responsive]="true" lazy="true" pageLinkSize="filtro.pagina" [totalRecords]="totalRegistros"
+        (onLazyLoad)="aoMudarPagina($event)" #tabela>
+        <p-column field="nome" header="Nome"></p-column>
+        <p-column field="endereco.cidade" header="Cidade"></p-column>
+        <p-column field="endereco.estado" header="Estado"></p-column>
+        <p-column field="ativo" header="Status">
+            <ng-template let-pes="rowData" pTemplate="body">
+                <a href="javascript:;"
+                    [pTooltip]="pes.ativo ? 'Desativar' : 'Ativar'"
+                    tooltipPosition="top"
+                    (click)="mudarStatus(pes)">
+                  {{ pes.ativo ? 'Ativo' : 'Inativo' }}
+                </a>
+            </ng-template>
+          </p-column>
+        <p-column styleClass="col-button">
+          <ng-template let-pes="rowData" pTemplate="body" >
+            <button pButton icon='fa fa-pencil' pTooltip="Editar." tooltipPosition="bottom" [routerLink]="['/pessoas', pes.codigo]"></button>
+            <button pButton icon='fa fa-trash' pTooltip="Excluir." (click)="confirmarExclusao(pes)" tooltipPosition="bottom"></button>
+          </ng-template>
+        </p-column>
+      </p-dataTable>
+    </div>
+    <div class="ui-g-12">
+      <button pButton type="button" label="Nova Pessoa" class="ui-button-primary" routerLink="/pessoas/nova"></button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="ui-g">
+    <div class="ui-g-12">
+      <h1>Dashboards</h1>
+    </div>
+  </div>
+  <p-tabView [style]="{'border':'0px'}">
+    <p-tabPanel header="DashBoard Line" leftIcon="fa-line-chart">
+      <p-chart type="line" [data]="data"></p-chart>
+    </p-tabPanel>
+    <p-tabPanel header="DashBoard Bar" leftIcon="fa-bar-chart" [closable]="true">
+      <p-chart type="bar" [data]="data"></p-chart>
+    </p-tabPanel>
+
+  </p-tabView>
+</div>

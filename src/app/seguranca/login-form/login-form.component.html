@@ -1,0 +1,31 @@
+<div class="background">
+  <div class="ui-g ui-fluid">
+  <div class="divborder">
+    <form #loginForm="ngForm" autocomplete="off" class="border-on">
+
+        <div class="ui-g-12">
+            <img class="logo" src="./assets/logo.jpg">
+            </div>
+        <div class="ui-g-12">
+          <div class="ui-inputgroup">
+            <span class="ui-inputgroup-addon">
+              <i class="fa fa-envelope"></i>
+            </span>
+            <input pInputText type="email" name="usuario" placeholder="E-mail" ngModel required #usuario>
+          </div>
+        </div>
+        <div class="ui-g-12">
+          <div class="ui-inputgroup">
+            <span class="ui-inputgroup-addon">
+              <i class="fa fa-lock"></i>
+            </span>
+            <input pInputText type="password" name="senha" placeholder="senha" ngModel required #senha>
+          </div>
+        </div>
+        <div class="ui-g-12">
+          <button pButton type="submit" label="Login" [disabled]="!loginForm.valid" (click)="login(usuario.value, senha.value); senha.value=''" class="ui-button-info"></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,73 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #404c51;
+
+}
+a {
+  color: #337AB7;
+  text-decoration: none;
+}
+label{
+  font-weight: bold;
+}
+
+@media (min-width: 1200px){
+  .container {
+    width: 1170px;
+    margin: 0 auto;
+  }
+}
+
+.col-valor {
+  width: 120px;
+  text-align: right;
+}
+
+.col-date {
+  width: 120px;
+  text-align: center;
+}
+
+.col-button{
+  width: 100px;
+  text-align: center;
+
+}
+
+.col-status {
+  text-align: center;
+}
+
+a:hover, a:focus {
+  text-decoration: underline;
+}
+
+.ui-widget-header {
+  border: 0;
+  background: #f6f7f9;
+  color: #1b1d1f;
+  font-weight: normal;
+}
+
+@media(min-width: 800px){
+.divborder {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  bottom: 50px;
+  box-shadow: 0px 0px 10px rgb(153, 144, 144);
+  background-color: #ffff;
+  z-index: 100;
+  border-radius: 5px;
+  animation: animatezoom 1.2s;
+  padding: 0.01em 16px;
+}
+}
+
+
+@keyframes animatezoom {
+  0% {transform: scale(0); }
+  100%{transform: scale(1);}
+}
